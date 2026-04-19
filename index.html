@@ -108,36 +108,57 @@
   </head>
   <body class="bg-background text-on-surface selection:bg-primary-container">
     <!-- Top Navigation Bar -->
-    <nav class="fixed top-0 w-full z-50 bg-slate-50/60 dark:bg-slate-900/60 backdrop-blur-md">
+    <nav class="fixed top-0 w-full z-50 bg-slate-50/60 dark:bg-slate-900/60 backdrop-blur-md transition-all duration-300" id="main-nav">
       <div class="flex justify-between items-center max-w-7xl mx-auto px-8 h-20">
-        <span class="font-serif italic text-2xl text-slate-800 dark:text-slate-100">김인영의 디지털 블로그</span>
+        <a href="#/" class="font-serif italic text-2xl text-slate-800 dark:text-slate-100">김인영의 디지털 블로그</a>
+        
+        <!-- Desktop Menu -->
         <div class="hidden md:flex gap-12 items-center">
-          <a class="font-serif text-lg tracking-tight text-slate-900 dark:text-white border-b-2 border-slate-500 pb-1 hover:text-slate-800 transition-colors duration-300" href="#">Home</a>
-          <a class="font-serif text-lg tracking-tight text-slate-500 dark:text-slate-400 hover:text-slate-800 transition-colors duration-300" href="#">About</a>
-          <a class="font-serif text-lg tracking-tight text-slate-500 dark:text-slate-400 hover:text-slate-800 transition-colors duration-300" href="#">Projects</a>
-          <a class="font-serif text-lg tracking-tight text-slate-500 dark:text-slate-400 hover:text-slate-800 transition-colors duration-300" href="#">Blog</a>
+          <a class="nav-link font-serif text-lg tracking-tight text-slate-900 dark:text-white hover:text-primary transition-colors duration-300" href="#/">Home</a>
+          <a class="nav-link font-serif text-lg tracking-tight text-slate-500 dark:text-slate-400 hover:text-primary transition-colors duration-300" href="#">About</a>
+          <a class="nav-link font-serif text-lg tracking-tight text-slate-500 dark:text-slate-400 hover:text-primary transition-colors duration-300" href="#/blog">Blog</a>
         </div>
-        <button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label text-sm uppercase tracking-widest scale-100 active:scale-95 transition-all">Contact</button>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-btn" class="md:hidden flex items-center p-2 text-slate-800 dark:text-slate-100">
+          <span class="material-symbols-outlined text-3xl">menu</span>
+        </button>
+
+        <button class="hidden md:block bg-primary text-on-primary px-6 py-2 rounded-lg font-label text-sm uppercase tracking-widest scale-100 active:scale-95 transition-all">Contact</button>
+      </div>
+
+      <!-- Mobile Menu Layer -->
+      <div id="mobile-menu" class="hidden fixed inset-0 z-50 bg-background/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8 p-8 transition-all duration-300">
+        <button id="close-menu-btn" class="absolute top-8 right-8 text-slate-800 dark:text-slate-100">
+          <span class="material-symbols-outlined text-4xl">close</span>
+        </button>
+        <a class="text-3xl font-headline italic" href="#/">Home</a>
+        <a class="text-3xl font-headline italic" href="#/blog">Blog</a>
+        <a class="text-3xl font-headline italic" href="#">About</a>
+        <a class="text-3xl font-headline italic" href="#">Projects</a>
       </div>
     </nav>
+
     <main class="pt-32 pb-24">
-      <!-- Hero Section -->
-      <section class="max-w-7xl mx-auto px-8 mb-48">
-        <div class="flex flex-col md:flex-row items-end gap-12">
-          <div class="md:w-3/5">
-            <p class="font-label text-xs uppercase tracking-[0.3em] text-on-surface-variant mb-4">A Portfolio by Inyoung Kim</p>
-            <h1 class="text-6xl md:text-8xl leading-tight font-headline text-on-background max-w-2xl mb-8">Curating Meaningful <span class="italic">Code.</span></h1>
-            <p class="font-body text-xl text-on-surface-variant max-w-md leading-relaxed border-l-2 border-primary-container pl-6">
-              An exploration of software as a medium for academic rigor and editorial elegance. Building systems that last.
-            </p>
-          </div>
-          <div class="md:w-2/5 w-full bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-outline-variant/10">
-            <div class="flex gap-2 mb-6">
-              <div class="w-3 h-3 rounded-full bg-error/20"></div>
-              <div class="w-3 h-3 rounded-full bg-secondary-container"></div>
-              <div class="w-3 h-3 rounded-full bg-primary-container"></div>
+      <!-- Home View -->
+      <div id="home-view">
+        <!-- Hero Section -->
+        <section class="max-w-7xl mx-auto px-8 mb-48">
+          <div class="flex flex-col md:flex-row items-end gap-12">
+            <div class="md:w-3/5">
+              <p class="font-label text-xs uppercase tracking-[0.3em] text-on-surface-variant mb-4">A Portfolio by Inyoung Kim</p>
+              <h1 class="text-6xl md:text-8xl leading-tight font-headline text-on-background max-w-2xl mb-8">Curating Meaningful <span class="italic">Code.</span></h1>
+              <p class="font-body text-xl text-on-surface-variant max-w-md leading-relaxed border-l-2 border-primary-container pl-6">
+                An exploration of software as a medium for academic rigor and editorial elegance. Building systems that last.
+              </p>
             </div>
-            <pre class="font-mono text-sm text-primary leading-relaxed"><span class="text-on-surface-variant">// Intentional Architecture</span>
+            <div class="md:w-2/5 w-full bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-outline-variant/10">
+              <div class="flex gap-2 mb-6">
+                <div class="w-3 h-3 rounded-full bg-error/20"></div>
+                <div class="w-3 h-3 rounded-full bg-secondary-container"></div>
+                <div class="w-3 h-3 rounded-full bg-primary-container"></div>
+              </div>
+              <pre class="font-mono text-sm text-primary leading-relaxed"><span class="text-on-surface-variant">// Intentional Architecture</span>
 <span class="text-tertiary">class</span> <span class="text-secondary">Narrative</span> {
   <span class="text-tertiary">constructor</span>(identity) {
     <span class="text-tertiary">this</span>.core = identity;
@@ -148,124 +169,71 @@
     <span class="text-tertiary">return</span> <span class="text-tertiary">this</span>.core.distill();
   }
 }
-                    </pre>
-          </div>
-        </div>
-      </section>
-      <!-- About / Intro: The Craft -->
-      <section class="bg-surface-container-low py-32 mb-48">
-        <div class="max-w-7xl mx-auto px-8 asymmetric-grid items-center">
-          <div class="relative">
-            <img
-              alt="The Craft"
-              class="w-full h-[500px] object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-700"
-              data-alt="minimalist overhead shot of a clean wooden desk with a single black notebook and a fountain pen in soft natural light"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCP1K_t5ktWIXJbrJJcUoZffgJDWJnlBErrKcnj0RfI-am_ZTZfMWnZYbSU_EJDeDnONSelD7LCvyxRhPn1F31nKOdMzpuf-oUO_bA263Lx2ZpXYeXE4m_fBFJK0SbQIlTgPhd2Ipn5E5AWuqCSOp-O-8tREpKvwHWBLW3SELO8ERPHK-99NDPrpaBLrPwPCV1fw8-SSTdSi8i6lEJGdjCKLeZj2FkdMNTxPXx2EEdPnW2c99YS_skC9cnLeHkpmoPpABkg0sJzLkA"
-            />
-          </div>
-          <div class="pl-0 md:pl-12">
-            <p class="font-label text-xs uppercase tracking-[0.3em] text-primary mb-6">The Philosophy</p>
-            <h2 class="text-4xl md:text-5xl font-headline mb-8 text-on-background">The Craft</h2>
-            <div class="space-y-6 text-lg text-on-surface-variant leading-loose font-body">
-              <p>Architecture is not merely the arrangement of components; it is the silent dialogue between logic and human intent. I believe in software that prioritizes <span class="text-on-surface font-semibold">semantic excellence</span> over transient trends.</p>
-              <p>Every line of code is a structural choice. My approach borrows from the meticulous nature of digital curation—selecting only what is necessary, refining what remains until it achieves a state of quiet authority.</p>
-              <a class="inline-block border-b-2 border-primary-container pb-1 text-sm font-label uppercase tracking-widest text-on-background hover:border-primary transition-all" href="#">Read the Manifesto</a>
+                      </pre>
             </div>
           </div>
-        </div>
-      </section>
-      <!-- Selected Work -->
-      <section class="max-w-7xl mx-auto px-8 mb-48">
-        <div class="flex justify-between items-end mb-16">
-          <div>
-            <p class="font-label text-xs uppercase tracking-[0.3em] text-on-surface-variant mb-4">Portfolio</p>
-            <h2 class="text-5xl font-headline text-on-background italic">Selected Work</h2>
-          </div>
-          <div class="hidden md:block h-[1px] flex-grow mx-12 bg-outline-variant/30 mb-4"></div>
-          <p class="font-label text-xs text-on-surface-variant uppercase tracking-widest mb-4">Volume I — IV</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-24">
-          <!-- Project 1 -->
-          <div class="group">
-            <div class="overflow-hidden bg-surface-container-high mb-8 rounded-sm">
+        </section>
+
+        <!-- About / Intro -->
+        <section class="bg-surface-container-low py-32 mb-48">
+          <div class="max-w-7xl mx-auto px-8 asymmetric-grid items-center">
+            <div class="relative">
               <img
-                alt="Aether State Machine"
-                class="w-full aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-700"
-                data-alt="abstract 3D render of interconnected translucent glass spheres floating in a void with subtle blue and grey lighting"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfrHUD5owlMFXH4OhB3Cw9Wuzeg-4hr0XfoS67s105vkPE3bjI88cjsf2LjSkou-M-owLJle323_BGapScEdsIcunRzjnO2xsg90E4M_u9-G1VZ5-9gNOphtY62sJ--tbzWTvXKy0fTZfX_NinuKcrDhWiPqx__ODmYqCKI5r-_UhYFy13WBjE0gK-aPFhzDQbGX6U5ipq_mmqa0cv9m2dIUhzA5-tOFV83MslBiAC0Lo3UH33c_-BqtHrM8ZIazRsqYFQCC3eIZY"
+                alt="The Craft"
+                class="w-full h-[500px] object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-700"
+                src="https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?q=80&w=2070&auto=format&fit=crop"
               />
             </div>
-            <div class="flex justify-between items-start">
-              <div>
-                <h3 class="text-2xl font-headline mb-2 text-on-background">Aether: Distributed State Machine</h3>
-                <p class="text-on-surface-variant font-body">System Design & Implementation</p>
+            <div class="pl-0 md:pl-12">
+              <p class="font-label text-xs uppercase tracking-[0.3em] text-primary mb-6">The Philosophy</p>
+              <h2 class="text-4xl md:text-5xl font-headline mb-8 text-on-background">The Craft</h2>
+              <div class="space-y-6 text-lg text-on-surface-variant leading-loose font-body">
+                <p>Architecture is not merely the arrangement of components; it is the silent dialogue between logic and human intent. I believe in software that prioritizes <span class="text-on-surface font-semibold">semantic excellence</span> over transient trends.</p>
+                <p>Every line of code is a structural choice. My approach borrows from the meticulous nature of digital curation.</p>
+                <a class="inline-block border-b-2 border-primary-container pb-1 text-sm font-label uppercase tracking-widest text-on-background hover:border-primary transition-all" href="#">Read the Manifesto</a>
               </div>
-              <span class="font-label text-[10px] border border-outline-variant/40 px-3 py-1 rounded-full uppercase tracking-tighter">2024</span>
             </div>
           </div>
-          <!-- Project 2 -->
-          <div class="group md:mt-32">
-            <div class="overflow-hidden bg-surface-container-high mb-8 rounded-sm">
-              <img
-                alt="Mono Framework"
-                class="w-full aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-700"
-                data-alt="close-up detail of high-quality cream colored paper with embossed minimalist typography in a clean studio setting"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWj8f1iV6TyrojmDBSISgqHKrZub_zMkGqchz3nksrmj_EkyPmGcAnicRy6Elm8Q9s81lTnTF_xzbxRHDL4ulZA6lWI1ibV1gSOU8TySDqinNnrl6K-Pu_7EBsChjjaTEdrH1zwPWiGlYbBB10SMlKdbTtumNbVutPwI8KNHWZwkyTH06CsK4lVRUJmmtShc5myzzfqfpIF25NXYk-_q9A2iPyHhcfB3Zy18BSQo8Q7D36hJY4XpDGAkJNLpU2nxS4zTLzZ2dGRGs"
-              />
+        </section>
+
+        <!-- Study Log (Recent 3 Posts) -->
+        <section class="max-w-7xl mx-auto px-8 mb-48 flex flex-col md:flex-row gap-20">
+          <div class="md:w-1/3">
+            <h2 class="text-5xl font-headline text-on-background sticky top-32 leading-tight">Study Log<br /><span class="text-3xl text-outline-variant italic font-normal">Recent Inquiries</span></h2>
+          </div>
+          <div class="md:w-2/3">
+            <div id="home-posts-container" class="divide-y divide-outline-variant/10">
+              <!-- Dynamically filled -->
             </div>
-            <div class="flex justify-between items-start">
-              <div>
-                <h3 class="text-2xl font-headline mb-2 text-on-background">Mono: An Editorial UI Framework</h3>
-                <p class="text-on-surface-variant font-body">UI Engineering & Design Systems</p>
-              </div>
-              <span class="font-label text-[10px] border border-outline-variant/40 px-3 py-1 rounded-full uppercase tracking-tighter">2023</span>
+            <div class="mt-12">
+              <a class="font-label text-sm uppercase tracking-widest text-primary font-bold hover:text-on-background transition-colors" href="#/blog">View All 50 Posts</a>
             </div>
           </div>
+        </section>
+      </div>
+
+      <!-- Archive View -->
+      <div id="archive-view" class="hidden max-w-5xl mx-auto px-8">
+        <header class="mb-20 text-center">
+          <p class="font-label text-xs uppercase tracking-[0.4em] text-primary mb-6">The Full Collection</p>
+          <h1 class="text-6xl font-headline text-on-background italic mb-4">Archive</h1>
+          <div class="h-1 w-24 bg-primary-container mx-auto"></div>
+        </header>
+        <div id="archive-posts-list" class="space-y-4">
+          <!-- Dynamically filled -->
         </div>
-      </section>
-      <!-- Study Log -->
-      <section class="max-w-7xl mx-auto px-8 mb-48 flex flex-col md:flex-row gap-20">
-        <div class="md:w-1/3">
-          <h2 class="text-5xl font-headline text-on-background sticky top-32 leading-tight">Study Log<br /><span class="text-3xl text-outline-variant italic font-normal">Recent Inquiries</span></h2>
+      </div>
+
+      <!-- Post View -->
+      <div id="post-view" class="hidden max-w-3xl mx-auto px-8">
+        <div id="post-content">
+          <!-- Dynamically filled -->
         </div>
-        <div class="md:w-2/3">
-          <div class="divide-y divide-outline-variant/10">
-            <!-- Entry 1 -->
-            <div class="py-12 group cursor-pointer">
-              <div class="flex justify-between items-baseline mb-4">
-                <span class="font-label text-xs uppercase tracking-widest text-primary-dim">Sept 12, 2024</span>
-                <span class="material-symbols-outlined text-outline-variant opacity-0 group-hover:opacity-100 transition-opacity">arrow_outward</span>
-              </div>
-              <h3 class="text-3xl font-headline text-on-background group-hover:italic transition-all">The Epistemology of Functional Paradigms</h3>
-              <p class="mt-4 text-on-surface-variant max-w-lg font-body leading-relaxed">Reflecting on the bridge between mathematical certainty and practical application in distributed systems.</p>
-            </div>
-            <!-- Entry 2 -->
-            <div class="py-12 group cursor-pointer">
-              <div class="flex justify-between items-baseline mb-4">
-                <span class="font-label text-xs uppercase tracking-widest text-primary-dim">Aug 28, 2024</span>
-                <span class="material-symbols-outlined text-outline-variant opacity-0 group-hover:opacity-100 transition-opacity">arrow_outward</span>
-              </div>
-              <h3 class="text-3xl font-headline text-on-background group-hover:italic transition-all">Visual Silence in UI: A Quantitative Study</h3>
-              <p class="mt-4 text-on-surface-variant max-w-lg font-body leading-relaxed">Analyzing user cognition speeds when presented with high-negative-space versus high-density information interfaces.</p>
-            </div>
-            <!-- Entry 3 -->
-            <div class="py-12 group cursor-pointer">
-              <div class="flex justify-between items-baseline mb-4">
-                <span class="font-label text-xs uppercase tracking-widest text-primary-dim">July 15, 2024</span>
-                <span class="material-symbols-outlined text-outline-variant opacity-0 group-hover:opacity-100 transition-opacity">arrow_outward</span>
-              </div>
-              <h3 class="text-3xl font-headline text-on-background group-hover:italic transition-all">Micro-services and the Death of Local State</h3>
-              <p class="mt-4 text-on-surface-variant max-w-lg font-body leading-relaxed">A critical look at the architectural trade-offs in modern serverless environments.</p>
-            </div>
-          </div>
-          <div class="mt-12">
-            <a class="font-label text-sm uppercase tracking-widest text-primary font-bold hover:text-on-background transition-colors" href="#">View All Archive</a>
-          </div>
-        </div>
-      </section>
-      <!-- Newsletter/Contact -->
-      <section class="max-w-5xl mx-auto px-8 text-center mb-24">
-        <div class="bg-surface-container-lowest p-20 rounded-xl border border-outline-variant/10">
+      </div>
+
+      <!-- Shared Sections (Newsletter/Contact) -->
+      <section class="max-w-5xl mx-auto px-8 text-center mb-24 mt-48">
+        <div class="bg-surface-container-lowest p-20 rounded-xl border border-outline-variant/10 shadow-sm">
           <p class="font-label text-xs uppercase tracking-[0.4em] text-primary mb-6">Correspondence</p>
           <h2 class="text-5xl font-headline text-on-background mb-8 italic">Stay Curious.</h2>
           <p class="text-on-surface-variant font-body text-lg mb-12 max-w-lg mx-auto">Receive occasional dispatches on technology, aesthetics, and the philosophy of engineering.</p>
@@ -276,17 +244,19 @@
         </div>
       </section>
     </main>
+
     <!-- Footer -->
-    <footer class="bg-slate-50 dark:bg-slate-950 w-full py-16 px-8 tonal-shift bg-slate-100/50 dark:bg-slate-900/50">
+    <footer class="bg-slate-50 dark:bg-slate-950 w-full py-16 px-8 tonal-shift border-t border-outline-variant/10">
       <div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto gap-8">
         <div class="font-sans text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">© 2026 김인영의 디지털 블로그. Built by a Modern Scholar.</div>
         <div class="flex gap-12">
           <a class="font-sans text-xs uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-white transition-all" href="#">RSS Feed</a>
-          <a class="font-sans text-xs uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-white transition-all" href="#">Github</a>
+          <a class="font-sans text-xs uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-white transition-all" href="https://github.com/kiy070409">Github</a>
           <a class="font-sans text-xs uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-white transition-all" href="#">LinkedIn</a>
-          <a class="font-sans text-xs uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-white transition-all" href="#">Scholar</a>
         </div>
       </div>
     </footer>
+
+    <script type="module" src="./main.js"></script>
   </body>
 </html>
